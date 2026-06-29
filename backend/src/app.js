@@ -8,7 +8,7 @@ app.use(express.json())
 app.use(cookieParser())
 app.use(cors({
     origin: ["http://localhost:5173",
-        "https://ai-chatbot-bmsy.onrender.com"
+        "https://ai-chat-bot-j73l.vercel.app"
     ],
     credentials: true
 }))
