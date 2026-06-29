@@ -2,7 +2,7 @@ import axios from "axios"
 
 
 const api = axios.create({
-    baseURL: "http:/localhost:3000",
+    baseURL: "http://localhost:3000",
     withCredentials: true
 })
 
@@ -16,8 +16,8 @@ export async function register({ username, email, password }) {
         return response.data
 
     } catch (err) {
-        console.log("Register error:", err.response?.data)
-        throw err  // ← re-throw so caller knows it failed
+
+        console.log(err)
 
     }
 
@@ -34,8 +34,7 @@ export async function login({ email, password }) {
         return response.data
 
     } catch (err) {
-        console.log("Login error:", err.response?.data)  // ← this will show the actual server message
-        throw err  // ← re-throw so useAuth.js stops execution
+        console.log(err)
     }
 
 }
@@ -48,8 +47,7 @@ export async function logout() {
         return response.data
 
     } catch (err) {
-         console.log("Logout error:", err.response?.data)
-        throw err
+
     }
 }
 
@@ -62,8 +60,7 @@ export async function getMe() {
         return response.data
 
     } catch (err) {
-        console.log("getMe error:", err.response?.data)
-        throw err  // ← stops the 401 loop in useAuth.js
+        console.log(err)
     }
 
 }
